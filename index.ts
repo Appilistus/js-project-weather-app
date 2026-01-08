@@ -138,10 +138,10 @@ async function fetchWeather(place: Place): Promise<void> {
     if (forecastContainer) {
       forecastContainer.innerHTML = ""; // Clear old data
 
-      const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+    const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 
       // Generate HTML for each forecast day
-      dailyForecast.forEach((day) => {
+    dailyForecast.forEach((day) => {
         const date = new Date(day.date);
         const weekday = weekdays[date.getDay()]
 

@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 // === List of cities ===
 const places = [
     { name: "Stockholm", lat: 59.329468, lon: 18.062639 },
@@ -68,7 +70,7 @@ async function fetchWeather(place) {
             if (t === undefined || sym === undefined)
                 return;
             // Initialize the day if missing, then push temp
-            (groupedByDate[dateKey] ?? (groupedByDate[dateKey] = { temps: [], symbol: sym })).temps.push(t);
+            (groupedByDate[dateKey] ??= { temps: [], symbol: sym }).temps.push(t);
         });
         // === Create a simplified daily forecast array ===
         const dailyForecast = Object.entries(groupedByDate)
@@ -141,5 +143,4 @@ function nextCity() {
 fetchWeather(places[currentIndex]);
 // === Connect the button click event ===
 document.getElementById("toggle-button")?.addEventListener("click", nextCity);
-export {};
 //# sourceMappingURL=index.js.map
